@@ -111,18 +111,7 @@ AND ingredient.concept_class_id = 'Ingredient'
 AND ingredient.standard_concept = 'S';"
 renderTranslateQuerySql(connection, sql, cdm = "main")
 disconnect(connection)
-#방법2
-library(DatabaseConnector)
-connection <- connect(connectionDetails)
-sql <- "SELECT COUNT(DISTINCT(person_id)) AS person_count
-FROM @cdm.drug_era
-INNER JOIN @cdm.concept ingredient
-ON drug_concept_id = ingredient.concept_id
-WHERE LOWER(ingredient.concept_name)='celecoxib'
-AND ingredient.concept_class_id='Ingredient'
-AND ingredient.standard_concept='S';"
-renderTranslateQuerySql(connection, sql, cdm='main')
-disconnect(connection)
+
 ###9.3. SQL과 R을 사용해 celecoxib에 노출되는 동안 얼마나 많은 위장 출혈이 있는지 진단(위장출혈 개념 ID는 192671)
 library(DatabaseConnector)
 connection <- connect(connectionDetails)
