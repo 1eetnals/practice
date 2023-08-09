@@ -97,7 +97,6 @@ renderTranslateQuerySql(connection, sql, cdm='main')
 disconnect(connection)
 
 ###9.2. SQL과 R을 사용해 celecoxib을 적어도 한번 이상 처방 한 사람 계산
-#방법1
 library(DatabaseConnector)
 connection <- connect(connectionDetails)
 sql <- "SELECT COUNT(DISTINCT(person_id)) AS person_count
